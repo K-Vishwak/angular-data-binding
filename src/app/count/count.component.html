@@ -1,0 +1,9 @@
+<div>
+  <label for="sizeEle">Custom HTML Element: </label>
+  <input
+    type="number"
+    id="sizeEle"
+    [ngModel]="size"
+    (ngModelChange)="sizeChangeEvent($event)"
+  />
+</div>

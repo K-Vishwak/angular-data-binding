@@ -1,0 +1,91 @@
+<div>
+  <!--Text interpolation-->
+  <h3>
+    Welcome to {{ title }}!
+  </h3>
+  <pre ngNonBindable>
+     Text Interpolation: Welcome to {{ title }}!
+  </pre>
+  <hr />
+  <!--property binding-->
+  <img width="50" height="20" alt="Angular Logo" [src]="imgUrl" />
+  <pre ngNonBindable>
+     Property Binding: [src]="imgUrl"
+  </pre>
+  <hr />
+</div>
+
+<!--Event binding-->
+<div>
+  <button (click)="triggerEvent()">Click Me!</button>
+  <pre ngNonBindable>
+      Event Binding: (click)="triggerEvent()"
+   </pre
+  >
+  <p>{{message}}</p>
+</div>
+
+<!--Two way binding using built-in html input element-->
+<div>
+  <hr />
+  <label for="count">Count (in view): </label>
+  <input id="count" name="countInput" type="number" [(ngModel)]="count" />
+  <p>Updated Count (in model): {{count}}</p>
+  <pre ngNonBindable>
+      Two way data binding - built-in HTML element: [(ngModel)]="count"
+   </pre
+  >
+</div>
+
+<!--Two way binding using custom html element-->
+<div>
+  <hr />
+  <app-count [(size)]="size"></app-count>
+  <!-- <app-count [size]="size" (sizeChange)="size=$event"></app-count> -->
+  <p>Updated size: {{size}}</p>
+
+  <pre ngNonBindable>
+      Two way data binding - custom element: 
+      
+      [(size)]="size" 
+      or 
+      [size]="size" (sizeChange)="size=$event"
+   </pre
+  >
+  <hr />
+</div>
+
+<!--Attribute Binding-->
+<div>
+  <button id="submit" [attr.aria-label]="actionName">{{actionName}}</button>
+  <pre ngNonBindable>
+    [attr.aria-label]="actionName" - actionName submit is assigned.
+  </pre>
+  <hr />
+</div>
+
+<!--Class or Style Binding-->
+<div>
+  <!--Class binding-->
+  <p [class.red-color]="isSingle">Single Class binding</p>
+  <pre ngNonBindable>
+      [class.red-color]="isSingle"
+       -> class named .single is applied when isSingle is true.
+  </pre>
+
+  <p [class]="'blue-color skyblue-background'">Multi Class string binding</p>
+  <pre ngNonBindable>
+      [class]="'blue-color skyblue-background'"
+       -> classes first, second are applied.
+  </pre>
+
+  <!-- <p
+    [class]="['blue-color','skyblue-background']"
+  >
+    Multi Class object binding
+  </p>
+  <pre ngNonBindable>
+      [class]="'first second'"
+       -> classes first, second are applied.
+  </pre> -->
+</div>
